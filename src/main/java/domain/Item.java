@@ -10,13 +10,13 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "item")
 public class Item {
 
-    @DynamoDBHashKey(attributeName = "itemId")
+    @DynamoDBHashKey
     String id;
 
-    @DynamoDBAttribute(attributeName = "item_name")
+    @DynamoDBAttribute
     String name;
 
-    @DynamoDBAttribute(attributeName = "item_price")
+    @DynamoDBAttribute
     Double price;
 
     public String getId() {

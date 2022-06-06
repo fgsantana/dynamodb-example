@@ -4,26 +4,26 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import domain.Item;
 
 
-public class ItemRepository {
+public class ItemMapperRepository {
+
+    final DynamoDBMapper dynamoDBMapper;
     
-    DynamoDBMapper dynamoDBMapper;
-    
-    public ItemRepository(DynamoDBMapper dynamoDBMapper){
+    public ItemMapperRepository(final DynamoDBMapper dynamoDBMapper){
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
 
 
-    public void save(Item item) {
+    public void save(final Item item) {
         dynamoDBMapper.save(item);
 
     }
 
-    public Item findById(String id){
+    public Item findById(final String id){
         return dynamoDBMapper.load(Item.class,id);
     }
 
-    public void delete(Item item){
+    public void delete(final Item item){
         dynamoDBMapper.delete(item);
     }
 }
